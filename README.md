@@ -1,22 +1,26 @@
-# Implemention LSTM example for MNIST data with tflearn
+# Implemention LSTM example for MNIST data with Tensorflow
 
-### [Tflearn](https://github.com/tflearn/tflearn) is higher-level API for TensorFlow.
-### Dependencies: tensorflow 1.0, tflearn (sudo pip install tensorflow, tensorflow-gpu(GPU only), tflearn)
+### Dependencies: tensorflow 1.0, etaprogress (sudo pip install tensorflow, tensorflow-gpu(GPU only), etaprogress)
 #### Input: 28 rows of 28x1 fixel vector
 #### Output: 10 classes
 ### Usage
 #### Training: python mnist_lstm.py
-#### Tensorboard: tensorboard --logdir=/tmp/tflearn_logs/
+#### Tensorboard: tensorboard --logdir=/tmp/TF/MNIST
 
-...shell
+'''shell
 $ python mnist_lstm.py
 
 ...
-Training Step: 8600  | total loss: 0.03430 | time: 23.780s
-| Adam | epoch: 010 | loss: 0.03430 - R2: 0.9763 -- iter: 55000/55000
-training time: 131.180480003
-predict time: 2.66158895493
-accuracy:  97.53
+Epoch 8/10
+100% (468/468) [###################################################] eta 00:00 | | loss: 0.017217 | test_acc: 98.49
+Epoch 9/10
+100% (468/468) [###################################################] eta 00:00 | | loss: 0.033413 | test_acc: 98.59
+Epoch 10/10
+100% (468/468) [###################################################] eta 00:01 | | loss: 0.141304 | test_acc: 98.49
+Model saved in file: model/tf/lstm/model.ckpt
+training time: 128.101911068
+predict time: 0.437114953995
+accuracy:  98.64
 '''
 
 ![graph](graph.PNG)
