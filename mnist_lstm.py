@@ -18,9 +18,9 @@ class TensorflowLSTM():
 
         ## build graph
         tf.reset_default_graph()
-        self.X = tf.placeholder(tf.float32, [None, n_steps, n_inputs])
-        self.Y = tf.placeholder(tf.float32, [None, n_classes])
-        self.batch_size = tf.placeholder(tf.int32)
+        self.X = tf.placeholder(tf.float32, shape=(None, n_steps, n_inputs))
+        self.Y = tf.placeholder(tf.float32, shape=(None, n_classes))
+        self.batch_size = tf.placeholder(tf.int32, [])
 
         w1 = tf.Variable(tf.random_normal([h_size, n_classes]))
         b1 = tf.Variable(tf.random_normal([n_classes]))
@@ -47,9 +47,9 @@ class TensorflowLSTM():
         test_y = mnist.test.labels
         acc = 0
         with tf.Session(config=config) as sess:
-            shutil.rmtree('/tmp/TF/MNIST')
-            self.sw_train = tf.summary.FileWriter('/tmp/TF/MNIST/train', sess.graph)
-            self.sw_test = tf.summary.FileWriter('/tmp/TF/MNIST/test')
+            #shutil.rmtree('TB/MNIST')
+            self.sw_train = tf.summary.FileWriter('TB/MNIST/train', sess.graph)
+            self.sw_test = tf.summary.FileWriter('TB/MNIST/test')
             sess.run(init_op)
             for i in range(n_epoch):
                 print('Epoch %d/%d' % (i+1, n_epoch))
